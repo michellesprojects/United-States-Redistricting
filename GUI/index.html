@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>416 project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- leaflet css: -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+
+    <!-- Put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin="">
+    </script>
+
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+
+    <!-- our stylesheet: -->
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/leaflet-sidebar-v2/css/leaflet-sidebar.css">
+
+    
+    <!-- Materialized-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>          
+
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src="./node_modules/leaflet-sidebar-v2/js/leaflet-sidebar.js"></script>
+    <script src="./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet.path.drag@0.0.6/src/Path.Drag.js"></script>
+    <script src="https://unpkg.com/leaflet-editable@1.2.0/src/Leaflet.Editable.js"></script>
+    <script src="./src/handlers.js"></script>
+    <script src="./src/Comment.js"></script>
+    <script src="./src/State.js"></script>
+    <script src="./src/Precinct.js"></script>
+    <script src="./src/view.js"></script>
+    <script src="./src/vars.js"></script>
+    <script src="./src/Errors.js"></script>
+
+    <script src="./congressional_districts_shapes/pa_cd.js" type="text/javascript"></script>
+    <script src="./congressional_districts_shapes/ny_cd.js" type="text/javascript"></script>
+    <script src="./congressional_districts_shapes/ky_cd.js" type="text/javascript"></script>
+    
+    
+    <script src="./src/Map.js" type="text/javascript"></script>
+    <script src="./src/CongressionaDistrict.js" type="text/javascript"></script>
+    
+</head>
+
+<body>
+    <div id="modal1" class="modal">
+        <div id='modal-content' class="modal-content"> </div>
+        <div class="modal-footer">
+          <div id='modal-yes' class="modal-close waves-effect waves-green btn-flat">Yes</div>
+          <div id='modal-no' class="modal-close waves-effect waves-green btn-flat">No</div>
+        </div>
+    </div>
+  
+ <!-- optionally define the sidebar content via HTML markup -->
+    <div id="sidebar" class="leaflet-sidebar collapsed" style="z-index: 1000;"> 
+    <!-- nav tabs -->
+        <div class="leaflet-sidebar-tabs">
+            <!-- top aligned tabs -->
+            <ul role="tablist">
+                <li><a href="#sidebar_data_pan" role="tab"><i class="fa fa-bars active"></i></a></li>
+                <li><a href="#sidebar_tools_pan" role="tab"><i class="fa fa-cogs active"></i></a></li>
+                <li><a href="#sidebar_comments_pan" role="tab"><i class="fa fa-comment"></i></a></li>
+                <li><a href="#sidebar_errors_pan" role="tab"><i class="fa fa-exclamation"></i></a></li>
+            </ul>
+
+            <!-- bottom aligned tabs -->
+            
+        </div>
+
+        <!-- panel content -->
+        <div class="leaflet-sidebar-content" >
+            <div class="leaflet-sidebar-pane" id="sidebar_data_pan">
+                <h1 class="leaflet-sidebar-header">
+                    Data
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <br>
+                <ul id='data-edit-div' class="collapsible"></ul>
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="sidebar_tools_pan">
+                <h1 class="leaflet-sidebar-header">
+                    Tools
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1><br>
+                <p class="switch"> <label>
+                    <input disabled type="checkbox" id="show_pr_cb" class="state-switch_tools" onclick='handleShowPrecinctsCheckbox()' value="true"/>
+                    <span class="lever"></span>
+                    <span>Show Precincts</span>
+                    </label>
+                </p>
+                <p class="switch"> <label>
+                        <input disabled type="checkbox" id="show_cd_cb" class="state-switch_tools" onchange='handleShowCDCheckbox()' value="true"/>
+                        <span class="lever"></span>
+                        <span>Show Cogressional Districts</span>
+                    </label>
+                </p>
+                <p class="switch"> <label>
+                        <input disabled type="checkbox" id="show_np_cb" class="state-switch_tools" onclick='handleShowNPCheckbox()' value="true"/>
+                        <span class="lever"></span>
+                        <span>Show National Parks</span>
+                    </label>
+                </p>
+    
+                <br><br><br>
+    
+                <button id="edit_precinct_btn" class="waves-effect waves-light btn-small disabled edit-tools" onclick="setPolygonEditable()">Edit Precinct</button>
+                <button id="edit_precinct_save_btn" class="waves-effect waves-light btn-small disabled" onclick="handleSaveNewBoundary()">Save</button>
+                <div></div><br><br>
+                <button id="add_neighbor_btn" class="waves-effect waves-light btn-small disabled edit-tools" onclick="handleAddNeighbor()">Add Neighbor</button>
+                <button id="remove_neighbor_btn" class="waves-effect waves-light btn-small disabled edit-tools" onclick="handleRemoveNeighbor()">Remove Neighbor</button>
+                <div id="neighbor_edit_div"></div>
+                <br><br>
+                <button id="merge_polygons_btn" class="waves-effect waves-light btn-small disabled edit-tools" onclick="handleMergePolygons()">Merge Precincts</button>
+                <div id="merge_edit_div"></div>
+                <br><br>
+                <button id="define-ghost-btn" class="waves-effect waves-light btn-small disabled edit-tools" onclick="handleDefineGhost()">Define as Ghost</button>
+            </div>
+
+            <div class="leaflet-sidebar-pane" style="padding-left: 3%; padding-right: 10%;" id="sidebar_comments_pan">
+                <h1 class="leaflet-sidebar-header">
+                    Comments
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <br>
+                <div class="input-field">
+                    <textarea id="new_comment_ta" class="materialize-textarea"></textarea>
+                    <label for="new_comment_ta">Enter Text Here:</label>
+                </div>
+               
+                <button id="new_comment_add_btn" class="btn-small disabled comment-tools" onclick='handleAddComment(this)'>Add</button>
+                <button id="new_comment_cancel_btn" class= "btn-small disabled comment-tools">Cancel</button>
+                
+                <div id="comments_list" class=' comments'> <div id="comments-row" class=""></div> </div>
+            
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="sidebar_errors_pan">
+                <h1 class="leaflet-sidebar-header">
+                    Errors
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <br>
+                <!-- Dropdown Trigger -->
+                <div>
+                    <btn class='center-align dropdown-trigger waves-effect waves-light btn-small' data-target='dropdown1'>Select Error Type</btn>
+                <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class=' dropdown-content'>
+                        <li><a onclick="handleErrorTypeSelect(this)" data-value='enclosed'>Enclosed</a></li>
+                        <li><a onclick="handleErrorTypeSelect(this)" data-value='overlap'>Overlapps</a></li>
+                        <li><a onclick="handleErrorTypeSelect(this)" data-value='multipolygon'>Multipolygons</a></li>
+                        <li><a onclick="handleErrorTypeSelect(this)" data-value='coverage'>Gaps</a></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a onclick="handleErrorTypeSelect(this)" data-value='anomalous'>Anomalous Data</a></li>
+                    </ul>
+                </div>
+                <div> <ul id='error-list-ul' style="margin-right: 4%" class="collection"> </ul></div>
+                
+
+                
+            
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mapid"  class="sidebar-map"> </div>
+    <script>     
+        var mymap = L.map('mapid',  {editable: true, doubleClickZoom: false}).setView([39.8283, -98.5795], 5);
+        var legend = L.control({position: 'topright'});
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend');
+            div.innerHTML = '<select id="states_selection_dropdown" class="browser-default" onchange="dropdownHandler()"></select> ';
+            div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
+            return div;
+        };
+        legend.addTo(mymap);
+
+        showAllStates();
+        var sidebar = L.control.sidebar({ container: 'sidebar' })
+            .addTo(mymap)
+            //.open('sidebar_home_pan');
+
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+        })
+        $('.dropdown-trigger').dropdown();
+        $(document).ready(function(){
+            $('#modal1').modal();
+        });
+    </script>
+</body>
+
+</html>
