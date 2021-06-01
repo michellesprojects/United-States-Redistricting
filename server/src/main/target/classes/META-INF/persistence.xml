@@ -1,0 +1,50 @@
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+   
+    <persistence-unit name="EM">
+
+       <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
+        <class>data.classes.Comment</class>
+        <class>data.classes.DemographicData</class>
+        <class>data.classes.DataError</class>
+        <class>data.classes.ElectionData</class>
+        <class>regions.Precinct</class>
+        <class>data.classes.Record</class>
+        <class>regions.State</class>
+
+        <properties>
+      
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+
+            <property name="javax.persistence.jdbc.url" value="" />
+            <property name="javax.persistence.jdbc.user" value="" />
+            <property name="javax.persistence.jdbc.password" value="" />
+
+
+            <!--
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql3.cs.replaced_host_name:3306/myUserId" />
+            <property name="javax.persistence.jdbc.user" value="myUserId" />
+            <property name="javax.persistence.jdbc.password" value="password-here" />
+            -->
+
+            <property name="hibernate.dialect" value="" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+
+           <!-- <property name="hbm2ddl.auto" value="create-drop"/> -->
+
+           <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" /> -->
+
+
+        </properties>
+    </persistence-unit>
+</persistence>
+
