@@ -1,0 +1,164 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "@geoman-io/leaflet-geoman-free": {
+      "integrity": "sha512-e70EDRGSEUZxXmFrompIcAOe3/QL9LKa4CWP2NoNEBjGyUulm4ux30qkOR2a3o74AmN8K9JUfwQyao07GPSGzA==",
+      "requires": {
+        "@turf/difference": "^6.0.2",
+        "@turf/intersect": "^6.1.3",
+        "@turf/kinks": "6.x",
+        "lodash": "^4.17.15"
+      },
+      "resolved": "https://registry.npmjs.org/@geoman-io/leaflet-geoman-free/-/leaflet-geoman-free-2.3.0.tgz",
+      "version": "2.3.0"
+    },
+    "@turf/area": {
+      "integrity": "sha512-Zv+3N1ep9P5JvR0YOYagLANyapGWQBh8atdeR3bKpWcigVXFsEKNUw03U/5xnh+cKzm7yozHD6MFJkqQv55y0g==",
+      "requires": {
+        "@turf/helpers": "6.x",
+        "@turf/meta": "6.x"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/area/-/area-6.0.1.tgz",
+      "version": "6.0.1"
+    },
+    "@turf/difference": {
+      "integrity": "sha512-WtXkvFgOyHqsG3xtYG/m5Su+gkvyCUTbdW0XOuc3Ha2u9UeeBSGwEzTc2y9THDLDhHqR+DlTl1MMEBihXcy3fg==",
+      "requires": {
+        "@turf/area": "6.x",
+        "@turf/helpers": "6.x",
+        "@turf/invariant": "6.x",
+        "@turf/meta": "6.x",
+        "martinez-polygon-clipping": "^0.4.3"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/difference/-/difference-6.0.2.tgz",
+      "version": "6.0.2"
+    },
+    "@turf/helpers": {
+      "integrity": "sha512-vJvrdOZy1ngC7r3MDA7zIGSoIgyrkWcGnNIEaqn/APmw+bVLF2gAW7HIsdTxd12s5wQMqEpqIQrmrbRRZ0xC7g==",
+      "resolved": "https://registry.npmjs.org/@turf/helpers/-/helpers-6.1.4.tgz",
+      "version": "6.1.4"
+    },
+    "@turf/intersect": {
+      "integrity": "sha512-SeAJG/zPRRTeyK2OifkPoyLq60q8tv8prpPIH3R8ZhyF4MdLOnMv5MURaQ6kQd+3UTDrL+pYm6rqbPvln1zqIw==",
+      "requires": {
+        "@turf/helpers": "6.x",
+        "@turf/invariant": "6.x",
+        "martinez-polygon-clipping": "^0.4.3"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/intersect/-/intersect-6.1.3.tgz",
+      "version": "6.1.3"
+    },
+    "@turf/invariant": {
+      "integrity": "sha512-WU08Ph8j0J2jVGlQCKChXoCtI50BB3yEH21V++V0T4cR1T27HKCxkehV2sYMwTierfMBgjwSwDIsxnR4/2mWXg==",
+      "requires": {
+        "@turf/helpers": "6.x"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/invariant/-/invariant-6.1.2.tgz",
+      "version": "6.1.2"
+    },
+    "@turf/kinks": {
+      "integrity": "sha512-X2xk3+Sr9aeu51t1vBa7Iwowvjxcbl5fePLIo/dDOU4j5WeFoqGCto+DdEHQcC3y8HVUin4i8GaHVaM9sVTphg==",
+      "requires": {
+        "@turf/helpers": "6.x"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/kinks/-/kinks-6.0.0.tgz",
+      "version": "6.0.0"
+    },
+    "@turf/meta": {
+      "integrity": "sha512-VA7HJkx7qF1l3+GNGkDVn2oXy4+QoLP6LktXAaZKjuT1JI0YESat7quUkbCMy4zP9lAUuvS4YMslLyTtr919FA==",
+      "requires": {
+        "@turf/helpers": "6.x"
+      },
+      "resolved": "https://registry.npmjs.org/@turf/meta/-/meta-6.0.2.tgz",
+      "version": "6.0.2"
+    },
+    "commander": {
+      "integrity": "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==",
+      "resolved": "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz",
+      "version": "2.20.3"
+    },
+    "jquery": {
+      "integrity": "sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==",
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.4.1.tgz",
+      "version": "3.4.1"
+    },
+    "leaflet-editable": "^1.2.0",
+    "leaflet-sidebar-v2": "^3.2.2",
+    "leaflet.markercluster": "^1.4.1",
+    "lodash": {
+      "integrity": "sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz",
+      "version": "4.17.15"
+    },
+    "martinez-polygon-clipping": {
+      "integrity": "sha512-3ZNS0ksKhWTLsmCUkNf+/UimndZ5U2cVOS0I+IjiwF+M23E77TmeOZSmbRJbfCoQUog/vcQ42s3DXrhgOhgPqw==",
+      "requires": {
+        "splaytree": "^0.1.4",
+        "tinyqueue": "^1.2.0"
+      },
+      "resolved": "https://registry.npmjs.org/martinez-polygon-clipping/-/martinez-polygon-clipping-0.4.3.tgz",
+      "version": "0.4.3"
+    },
+    "sidebar-v2": {
+      "integrity": "sha512-YM+655PjRbF45n3r+lkpKkZlZz3pdjyaIqG2IQ4XXVfuSTB9WJTY2WCV1LunOteVCFy/iyYURVuJOkoyodtkgQ==",
+      "resolved": "https://registry.npmjs.org/sidebar-v2/-/sidebar-v2-0.4.0.tgz",
+      "version": "0.4.0"
+    },
+    "splaytree": {
+      "integrity": "sha512-D50hKrjZgBzqD3FT2Ek53f2dcDLAQT8SSGrzj3vidNH5ISRgceeGVJ2dQIthKOuayqFXfFjXheHNo4bbt9LhRQ==",
+      "resolved": "https://registry.npmjs.org/splaytree/-/splaytree-0.1.4.tgz",
+      "version": "0.1.4"
+    },
+    "tinyqueue": {
+      "integrity": "sha512-Qz9RgWuO9l8lT+Y9xvbzhPT2efIUIFd69N7eF7tJ9lnQl0iLj1M7peK7IoUGZL9DJHw9XftqLreccfxcQgYLxA==",
+      "resolved": "https://registry.npmjs.org/tinyqueue/-/tinyqueue-1.2.3.tgz",
+      "version": "1.2.3"
+    },
+    "topojson": {
+      "dependencies": {
+        "topojson-client": {
+          "integrity": "sha1-H5kpOnfvQqRI0DKoGqmCtz82DS8=",
+          "requires": {
+            "commander": "2"
+          },
+          "resolved": "https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz",
+          "version": "3.0.0"
+        },
+        "topojson-server": {
+          "integrity": "sha1-N4546Hw5cqe1vixdYENptrrmnF4=",
+          "requires": {
+            "commander": "2"
+          },
+          "resolved": "https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz",
+          "version": "3.0.0"
+        },
+        "topojson-simplify": {
+          "integrity": "sha512-gyYSVRt4jO/0RJXKZQPzTDQRWV+D/nOfiljNUv0HBXslFLtq3yxRHrl7jbrjdbda5Ytdr7M8BZUI4OxU7tnbRQ==",
+          "requires": {
+            "commander": "2",
+            "topojson-client": "3"
+          },
+          "resolved": "https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.2.tgz",
+          "version": "3.0.2"
+        }
+      },
+      "integrity": "sha512-u3zeuL6WEVL0dmsRn7uHZKc4Ao4gpW3sORUv+N3ezLTvY3JdCuyg0hvpWiIfFw8p/JwVN++SvAsFgcFEeR15rQ==",
+      "requires": {
+        "topojson-client": "3.0.0",
+        "topojson-server": "3.0.0",
+        "topojson-simplify": "3.0.2"
+      },
+      "resolved": "https://registry.npmjs.org/topojson/-/topojson-3.0.2.tgz",
+      "version": "3.0.2"
+    },
+    "topojson-server": {
+      "integrity": "sha512-/VS9j/ffKr2XAOjlZ9CgyyeLmgJ9dMwq6Y0YEON8O7p/tGGk+dCWnrE03zEdu7i4L7YsFZLEPZPzCvcB7lEEXw==",
+      "requires": {
+        "commander": "2"
+      },
+      "resolved": "https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.1.tgz",
+      "version": "3.0.1"
+    }
+  }
+}
