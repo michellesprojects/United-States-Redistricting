@@ -1,0 +1,13 @@
+year,state,state_po,state_fips,state_cen,state_ic,office,district,stage,candidate,party,candidatevotes,totalvotes
+2016,Kentucky,KY,21,61,51,US House,statewide,gen,NA,republican,"1,291,793","1,808,697"
+2016,Kentucky,KY,21,61,51,US House,statewide,gen,NA,democrat,516904,1808697
+2018,Kentucky,KY,21,61,51,US House,statewide,gen,NA,republican,"814,787","1,527,819"
+2018,Kentucky,KY,21,61,51,US House,statewide,gen,NA,democrat,"700,379","1,527,819"
+2016,New York,NY,36,21,13,US House,statewide,gen,NA,republican,"2,530,437","7,116,424"
+2016,New York,NY,36,21,13,US House,statewide,gen,NA,democrat,"4,464,934","7,116,424"
+2016,Pennsylvania,PA,42,23,14,US House,statewide,gen,NA,democrat,"2,755,058","5,650,203"
+2016,Pennsylvania,PA,42,23,14,US House,statewide,gen,NA,republican,"2,852,921","5,650,203"
+2018,New York,NY,36,21,13,US House,statewide,gen,NA,democrat,"3,760,566","5,917,541"
+2018,New York,NY,36,21,13,US House,statewide,gen,NA,republican,"1,639,593","5,917,541"
+2018,Pennsylvania,PA,42,23,14,US House,statewide,gen,NA,democrat,"2,568,968","4,670,264"
+2018,Pennsylvania,PA,42,23,14,US House,statewide,gen,NA,republican,"2,075,093","4,670,264"
